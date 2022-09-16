@@ -1,0 +1,32 @@
+.promo {
+  background-color: #073042;
+ 
+}
+
+.promo__container {
+  max-width: 1280px;
+  padding: 50px 70px;
+}
+
+.promo__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  max-width: 626px;
+  margin: 0;
+}
+
+.promo__image {
+  background-image: url('../../images/promo/promo.svg');
+  width: 722px;
+  height: 244px;
+  opacity: 0.7;
+}
+
+.promo__image-block {
+    display: flex;
+    justify-content: flex-end;
+  }

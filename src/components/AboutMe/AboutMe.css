@@ -1,0 +1,112 @@
+.aboutMe {
+  background-color:  #202020;
+  color: #FFFFFF;
+}
+
+.aboutMe__container {
+  max-width: 1280px;
+  padding: 110px 70px;
+}
+
+.aboutMe__title {
+  border-bottom: 1px solid #DADADA;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  padding-bottom: 23px;
+  margin: 0;
+}
+
+.aboutMe__profile {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+}
+
+.aboutMe__avatar {
+  border-radius: 10px;
+  height: 327px;
+  width: 270px;
+}
+
+.aboutMe__profile-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.aboutMe__profile-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  mix-blend-mode: normal;
+  margin: 18px 0 0;
+}
+
+.aboutMe__my-decription {
+  margin: 26px 0 99px;
+  max-width: 600px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  mix-blend-mode: normal;
+}
+
+.aboutMe__my-github {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.aboutMe__portfolio-title {
+  margin: 0;
+  padding: 101px 0 50px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #8B8B8B;
+}
+
+.aboutMe__portfolio-lists {
+  padding: 0;
+  margin: 0;
+}
+
+.aboutMe__portfolio-list {
+  border-bottom: 1px solid #424242;
+  list-style: none;
+  padding: 20px 0 19px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutMe__portfolio-link {
+  text-decoration: none;
+  color: white;
+}
+
+.aboutMe__portfolio-link:hover, .aboutMe__my-github:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: ease 0.2s
+}
+
+.aboutMe__portfolio-arrow {
+  background-image: url('../../images/aboutMe/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 29px;
+  height: 50px;
+}

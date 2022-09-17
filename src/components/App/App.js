@@ -17,6 +17,15 @@ function App() {
         <Route path="/movies">
           <Movies />
         </Route>
+        <Route path="/saved-movies">
+          <SavedMovies />
+        </Route>
+        <Route path="/signup">
+          <Register />
+        </Route>
+        <Route path="/signin">
+          <Login />
+        </Route>
       </Switch>
     </div>
   );

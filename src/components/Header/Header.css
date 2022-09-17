@@ -2,6 +2,10 @@
   background-color: #073042;
 }
 
+.header_theme_dark {
+  background-color: #202020;
+}
+
 .header__container {
   max-width: 1280px;
   display: flex;  
@@ -39,8 +43,55 @@
   line-height: 16px;
 }
 
-.header__login:hover, .header__registration:hover, .header__logo:hover {
+.header__login:hover, .header__registration:hover, .header__logo:hover , .header__list:hover, .header__user-account_visible:hover {
   opacity: 0.7;
   cursor: pointer;
   transition: ease 0.2s
+}
+
+.header__sign-buttons_inviseble{
+  display: none;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__nav_visible {
+  display: flex;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__list {
+  margin-right: 16px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: white;
+}
+
+.header__list:last-child {
+  margin-right: 0;
+}
+
+.header__user-account {
+  display: none;
+  background: inherit;
+  border: 0;
+  padding: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.header__user-account_visible {
+  display: flex;
+  cursor: pointer;
 }

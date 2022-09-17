@@ -17,3 +17,13 @@
 @import url('./components/Footer/Footer.css');
 /*searchForm*/
 @import url('./components/SearchForm/SearchForm.css');
+/*filterCheckbox*/
+@import url('./components/FilterCheckbox/FilterCheckbox.css');
+/*moviesCard*/
+@import url('./components/MoviesCard/MoviesCard.css');
+/*moviesCardList*/
+@import url('./components/MoviesCardList/MoviesCardList.css');
+/*register*/
+@import url('./components/Register/Register.css');
+/*login*/
+@import url('./components/Login/Login.css');

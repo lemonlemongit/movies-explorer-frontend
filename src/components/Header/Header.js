@@ -54,6 +54,7 @@ function Header({ loggedIn }) {
           </Link>
         </div>
         <button
+          type="button"
           className={`header__burger ${
             loggedIn ? "header__burger_visible" : ""
           }`}
@@ -65,10 +66,14 @@ function Header({ loggedIn }) {
           }`}
         >
           <Link to="/signup">
-            <button className="header__registration">Регистрация</button>
+            <button className="header__registration" type="button">
+              Регистрация
+            </button>
           </Link>
           <Link to="signin">
-            <button className="header__login">Войти</button>
+            <button className="header__login" type="button">
+              Войти
+            </button>
           </Link>
         </div>
       </div>

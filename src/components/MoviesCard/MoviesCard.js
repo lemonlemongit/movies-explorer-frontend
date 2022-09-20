@@ -10,10 +10,14 @@ function MoviesCard({ title, duration, picture }) {
           <div className="moviesCard__duration">{duration}</div>
         </div>
         <div className="moviesCard__flag">
-        <img className="moviesCard__flag-img" src={inactive} alt="Кнопка сохранить" />
+          <img
+            className="moviesCard__flag-img"
+            src={inactive}
+            alt="Кнопка сохранить"
+          />
         </div>
       </div>
-      <img className="moviesCard__picture" alt="Фильм" src={picture}/>
+      <img className="moviesCard__picture" alt="Фильм" src={picture} />
     </div>
   );
 }

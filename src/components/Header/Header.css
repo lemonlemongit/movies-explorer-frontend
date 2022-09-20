@@ -1,5 +1,6 @@
 .header {
   background-color: #073042;
+  position: relative;
 }
 
 .header_theme_dark {
@@ -8,15 +9,15 @@
 
 .header__container {
   max-width: 1280px;
-  display: flex;  
+  display: flex;
   justify-content: space-between;
-  padding: 18px 70px;
+  padding: 0 70px;
 }
 
 .header__logo {
   max-height: 38px;
   max-width: 38px;
-  padding: 0;
+  padding: 18px 0;
   cursor: pointer;
 }
 
@@ -43,13 +44,18 @@
   line-height: 16px;
 }
 
-.header__login:hover, .header__registration:hover, .header__logo:hover , .header__list:hover, .header__user-account_visible:hover {
+.header__login:hover,
+.header__registration:hover,
+.header__logo:hover,
+.header__list:hover,
+.header__user-account_visible:hover,
+.header__burger:hover {
   opacity: 0.7;
   cursor: pointer;
   transition: ease 0.2s
 }
 
-.header__sign-buttons_inviseble{
+.header__sign-buttons_inviseble {
   display: none;
 }
 
@@ -64,20 +70,53 @@
 .header__nav-list {
   display: flex;
   list-style: none;
-  padding: 0;
+  padding: 28px 0;
   margin: 0;
 }
 
 .header__list {
-  margin-right: 16px;
+  margin-left: 16px;
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
   color: white;
+  text-decoration: none;
+  list-style: none;
 }
 
-.header__list:last-child {
-  margin-right: 0;
+.header__list-li {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+}
+
+.header__list_active {
+  font-weight: 500;
+}
+
+.header__user {
+  padding-top: 21px;
+}
+
+.header__user-account-icon {
+  width: 26px;
+  height: 30px;
+  background-color: #313131;
+  border-radius: 4px;
+  margin-left: 17px;
+  position: relative;
+}
+
+.header__user-icon {
+  background-image: url('../../images/header/account-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 11.5px;
+  height: 14px;
+  color: white;
+  position: absolute;
+  left: 7.25px;
+  top: 8px;
 }
 
 .header__user-account {
@@ -89,9 +128,66 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+  align-items: center;
+  text-decoration: none;
 }
 
 .header__user-account_visible {
   display: flex;
   cursor: pointer;
+}
+
+.header__burger {
+  display: none;
+  background-image: url('../../images/header/main-burger.svg');
+  height: 43px;
+  width: 40px;
+  background-color: inherit;
+  border: 0;
+  padding: 0;
+  background-position: center;
+  margin-top: 15px;
+}
+
+.header__sign-buttons {
+  margin-top: 20px;
+}
+
+@media screen and (max-width:1279px) {
+  .header__container {
+    padding: 0 30px;
+  }
+}
+
+@media(max-width: 769px) {
+  .header__burger_visible {
+    display: block;
+  }
+
+  .header__user {
+    display: none;
+  }
+
+  .header__nav-list {
+    display: none;
+  }
+}
+
+@media screen and (max-width:650px) {
+  .header__container {
+    padding: 0 14px;
+  }
+
+  .header__sign-buttons {
+    margin-top: 24px;
+  }
+
+  .header__login {
+    padding: 5px 12px;
+    font-size: 10px;
+  }
+
+  .header__registration {
+    font-size: 10px;
+  }
 }

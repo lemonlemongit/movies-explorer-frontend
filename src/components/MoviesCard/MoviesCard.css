@@ -3,8 +3,8 @@
   max-height: 271px;
   background: #222222;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
-  
 }
+
 .moviesCard__picture {
   width: 364px;
   height: 203px;
@@ -40,7 +40,9 @@
   background-color: #313131;
   margin: 19px 14px;
 }
-.moviesCard__flag:hover, .moviesCard__picture:hover { 
+
+.moviesCard__flag:hover,
+.moviesCard__picture:hover {
   cursor: pointer;
   opacity: 0.7;
   transition: ease 0.2s

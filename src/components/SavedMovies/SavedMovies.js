@@ -9,13 +9,13 @@ import mov3 from "../../images/moviesCardList/mov3.png";
 
 function SavedMovies() {
   const [loggedIn, setLoggedIn] = React.useState(true);
-  const [saved, setSaved] = React.useState(true);
   return (
-    <section>
-    <section className="moviesCardList">
-      <Header loggedIn={loggedIn} />
+    <section className="savedMovies">
+       <Header loggedIn={loggedIn} />
       <SearchForm />
-      <div className="moviesCardList__container">
+      <section className="moviesCardList">
+     
+      <div className="moviesCardList__container moviesCardList__container_type_saved-movies">
         <MoviesCard
           title={"33 слова о дизайне"}
           duration={"1ч 47м"}

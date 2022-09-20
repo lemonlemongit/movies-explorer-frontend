@@ -17,21 +17,75 @@ function MoviesCardList({ saved }) {
   return (
     <section className="moviesCardList">
       <div className="moviesCardList__container">
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov1} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov2} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov3} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov4} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov5} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov6} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov7} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov8} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov9} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov10} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov11} />
-        <MoviesCard title={"33 слова о дизайне"} duration={"1ч 47м"} picture={mov12} />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov1}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov2}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov3}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov4}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov5}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov6}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov7}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov8}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov9}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov10}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov11}
+        />
+        <MoviesCard
+          title={"33 слова о дизайне"}
+          duration={"1ч 47м"}
+          picture={mov12}
+        />
       </div>
       <div className="moviesCardList__more">
-        <button className={`moviesCardList__more-button ${saved ? 'moviesCardList__more-button_hidden' : ""}`}>Ещё</button>
+        <button
+          className={`moviesCardList__more-button ${
+            saved ? "moviesCardList__more-button_hidden" : ""
+          }`}
+        >
+          Ещё
+        </button>
       </div>
     </section>
   );

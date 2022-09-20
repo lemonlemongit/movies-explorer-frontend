@@ -13,6 +13,8 @@
 @import url('./components/Techs/Techs.css');
 /*aboutMe*/
 @import url('./components/AboutMe/AboutMe.css');
+/*portfolio*/
+@import url('./components/Portfolio/Portfolio.css');
 /*footer*/
 @import url('./components/Footer/Footer.css');
 /*searchForm*/
@@ -27,3 +29,9 @@
 @import url('./components/Register/Register.css');
 /*login*/
 @import url('./components/Login/Login.css');
+/*norFound*/
+@import url('./components/NotFound/NotFound.css');
+/*profile*/
+@import url('./components/Profile/Profile.css');
+/*navigation*/
+@import url('./components/Navigation/Navigation.css');

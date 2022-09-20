@@ -35,29 +35,7 @@ function AboutMe() {
           </div>
         </div>
 
-        <div className="aboutMe__portfolio">
-          <p className="aboutMe__portfolio-title">Портфолио</p>
-          <ul className="aboutMe__portfolio-lists">
-            <li className="aboutMe__portfolio-list">
-              <a className="aboutMe__portfolio-link" href="1" target="blank">
-                Статичный сайт
-              </a>
-              <div className="aboutMe__portfolio-arrow"></div>
-            </li>
-            <li className="aboutMe__portfolio-list">
-              <a className="aboutMe__portfolio-link" href="1" target="blank">
-                Адаптивный сайт
-              </a>
-              <div className="aboutMe__portfolio-arrow"></div>
-            </li>
-            <li className="aboutMe__portfolio-list">
-              <a className="aboutMe__portfolio-link" href="1" target="blank">
-                Одностраниченое приложение
-              </a>
-              <div className="aboutMe__portfolio-arrow"></div>
-            </li>
-          </ul>
-        </div>
+        
       </div>
     </section>
   );

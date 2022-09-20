@@ -1,6 +1,5 @@
 .promo {
   background-color: #073042;
- 
 }
 
 .promo__container {
@@ -27,6 +26,56 @@
 }
 
 .promo__image-block {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 102px;
+}
+
+@media screen and (max-width:890px) {
+  .promo__container {
+    padding: 300px 44px 70px;
+    align-items: center;
+    text-align: center;
   }
+
+  .promo {
+    width: 100%;
+  }
+
+  .promo__image {
+    width: 100%;
+    max-height: 230px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .promo__title {
+    max-width: 100%;
+    padding: 0 44px;
+  }
+
+  .promo__image-block {
+    margin-top: 140px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .promo__container {
+    padding: 183px 0 0;
+  }
+
+  .promo__title {
+    padding: 0 10px;
+    font-size: 31px;
+    line-height: 39px;
+  }
+
+  .promo__image {
+    background-size: cover;
+  }
+
+  .promo__image-block {
+    margin-top: 60px;
+  }
+}

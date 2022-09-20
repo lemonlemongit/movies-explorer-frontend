@@ -62,7 +62,7 @@
 
 @media screen and (max-width:600px) {
   .promo__container {
-    padding: 183px 0 0;
+    padding: 183px 0 70px;
   }
 
   .promo__title {
@@ -77,5 +77,11 @@
 
   .promo__image-block {
     margin-top: 60px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .promo__container {
+    padding: 183px 0 40px;
   }
 }

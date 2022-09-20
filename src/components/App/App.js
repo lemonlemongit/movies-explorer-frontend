@@ -9,6 +9,7 @@ import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
 
 function App() {
+
   return (
     <div className="page">
       <Switch>

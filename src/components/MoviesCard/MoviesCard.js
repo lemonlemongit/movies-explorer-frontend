@@ -1,7 +1,6 @@
 import React from "react";
-import inactive from "../../images/moviesCard/flag-inactive.svg";
 
-function MoviesCard({ title, duration, picture }) {
+function MoviesCard({ title, duration, picture, classFlag, flag }) {
   return (
     <div className="moviesCard__container">
       <div className="moviesCard__preview-block">
@@ -9,13 +8,13 @@ function MoviesCard({ title, duration, picture }) {
           <h2 className="moviesCard__film-title">{title}</h2>
           <div className="moviesCard__duration">{duration}</div>
         </div>
-        <div className="moviesCard__flag">
+        <button className={classFlag} type="button">
           <img
             className="moviesCard__flag-img"
-            src={inactive}
+            src={flag}
             alt="Кнопка сохранить"
           />
-        </div>
+        </button>
       </div>
       <img className="moviesCard__picture" alt="Фильм" src={picture} />
     </div>

@@ -61,6 +61,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  color: black;
 }
 
 .aboutProject__waste-time-line {
@@ -69,6 +70,7 @@
 
 .aboutProject__time-line_type_grey {
   background-color: #303030;
+  color: #FFFFFF;
 }
 
 .aboutProject__line {

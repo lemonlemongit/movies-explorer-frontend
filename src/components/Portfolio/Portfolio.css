@@ -49,6 +49,10 @@
 .portfolio__portfolio-link {
   text-decoration: none;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
 }
 
 .portfolio__portfolio-link:hover{

@@ -4,7 +4,8 @@ import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
-function Movies({}) {
+
+function Movies() {
   const [loggedIn, setLoggedIn] = React.useState(true);
   const [saved, setSaved] = React.useState(true);
   const [isLoading, setLoading] = React.useState(true);

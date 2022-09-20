@@ -10,7 +10,7 @@ function AboutMe() {
           <div className="aboutMe__profile-iformation">
             <h3 className="aboutMe__profile-title">Павел</h3>
             <p className="aboutMe__profile-subtitle">
-              Студент фронтенд-разработки, 28 лет
+              Студент web-разработки, 28 лет
             </p>
             <p className="aboutMe__my-decription">
               Я живу в Санкт-Петербурге. Люблю слушать музыку. Недавно начал

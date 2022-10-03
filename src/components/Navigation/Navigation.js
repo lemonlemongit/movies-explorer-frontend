@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import closeButton from "../../images/header/close-icon.svg";
 
-function Header({ navIsOpen, closeNav }) {
+function Navigation({ navIsOpen, closeNav }) {
   return (
     <div className={`navigation ${navIsOpen ? "navigation_opened" : ""}`}>
       <nav className="navigation__container">
@@ -59,4 +59,4 @@ function Header({ navIsOpen, closeNav }) {
   );
 }
 
-export default Header;
+export default Navigation;

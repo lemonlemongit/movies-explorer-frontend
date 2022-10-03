@@ -1,40 +1,100 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../../images/header/logo.svg";
-import Header from "../Header/Header";
+﻿import React, { useEffect } from "react";
+import useFormWithValidation from "../../validate/useFormWithValidation";
+import HeaderNoMain from "../HeaderNoMain/HeaderNoMain";
 
-function Profile() {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+function Profile({
+  currentUser,
+  logOutHandler,
+  changeUserInfo,
+  editIsSuccess,
+  editIsFailed,
+}) {
+  const { values, setValues, handleChange, errors, isValid, setIsValid } =
+    useFormWithValidation();
+  useEffect(() => {
+    setValues(currentUser);
+    setIsValid(true);
+  }, [currentUser, setValues, setIsValid]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    changeUserInfo(values);
+  };
+
   return (
     <div className="profile">
-      <Header loggedIn={loggedIn} />
+      <HeaderNoMain />
       <div className="profile__container">
-        <h2 className="profile__title">Привет, Виталий!</h2>
-        <form className="profile__form">
+        <h2 className="profile__title">Привет, {currentUser.name}!</h2>
+        <form className="profile__form" onSubmit={submitHandler} noValidate>
           <div className="profile__form-input profile__form-input_type_border">
-            <label className="profile__lablel">Имя</label>
+            <label className="profile__lablel" htmlFor="name">
+              Имя
+            </label>
             <input
               className="profile__input"
+              required
               id="name"
-              value={"Виталий"}
-              disabled
+              name="name"
+              type="text"
+              minLength="4"
+              pattern="^[a-zA-Z- ]+$"
+              placeholder="Имя"
+              value={values.name || ""}
+              onChange={handleChange}
+              autoComplete="off"
             />
           </div>
+          <span className="register__form-error">{errors.name}</span>
           <div className="profile__form-input">
             <label className="profile__lablel">E-mail</label>
             <input
               className="profile__input"
-              id="name"
-              value={"pochta@yandex.ru"}
-              disabled
+              required
+              id="email"
+              name="email"
+              type="email"
+              placeholder="pochta@yandex.ru"
+              value={values.email || ""}
+              onChange={handleChange}
+              autoComplete="off"
             />
           </div>
-          <button className="profile__edit-button" type="submit">
+          <span className="register__form-error">{errors.email}</span>
+          {editIsSuccess && (
+            <p className="profile__edit-success">
+              Ваш профиль успешно изменён!
+            </p>
+          )}
+          {editIsFailed && (
+            <p className="profile__edit-fail">
+              Ошибка при изменении профиля! Попробуйте еще раз.
+            </p>
+          )}
+          <button
+            type="submit"
+            className={
+              isValid &&
+              (values.name !== currentUser.name ||
+                values.email !== currentUser.email)
+                ? "profile__edit-button profile__edit-button_type_active"
+                : "profile__edit-button"
+            }
+            disabled={
+              (values.name === currentUser.name &&
+                values.email === currentUser.email) ||
+              !isValid
+            }
+          >
             Редактировать
           </button>
         </form>
         <a href="/">
-          <button className="profile__signout-button" type="submit">
+          <button
+            className="profile__signout-button"
+            type="button"
+            onClick={logOutHandler}
+          >
             Выйти из аккаунта
           </button>
         </a>

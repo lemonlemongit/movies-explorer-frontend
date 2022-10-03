@@ -1,0 +1,19 @@
+.bookmark-remove-btn {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  margin: 19px 14px;
+  border-radius: 50%;
+  background-image: url('../../../images/moviesCard/flag-delete.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: #313131;
+  opacity: 1;
+}
+
+.bookmark-remove-btn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: ease 0.2s
+}

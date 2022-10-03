@@ -17,6 +17,15 @@
   color: white;
 }
 
+.register__form-lable {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__form-input_type_name {
+  margin-top: 14px;
+}
+
 .register__form-input {
   max-width: 396px;
   color: white;
@@ -27,6 +36,9 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+}
+.register__form-input_active_error {
+  color: red;
 }
 
 .register__form-lable {
@@ -62,7 +74,6 @@
 }
 
 .register__link:hover,
-.register__confirm-button:hover,
 .register__logo:hover {
   opacity: 0.7;
   cursor: pointer;
@@ -74,7 +85,7 @@
 }
 
 .register__confirm-button {
-  background: #4285F4;
+  background: #666;
   border-radius: 3px;
   width: 100%;
   border: 0;
@@ -84,8 +95,17 @@
   padding: 0;
 }
 
+.register__button_type_signin {
+  padding-top: 120px;
+}
+
 .register__logo {
   padding-top: 70px;
+}
+
+
+.register__button-sbmt_type_signin {
+  padding-top: 110px;
 }
 
 @media screen and (max-width:479px) {

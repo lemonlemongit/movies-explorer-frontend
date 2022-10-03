@@ -1,6 +1,6 @@
 import React from "react";
 
-function FilterCheckbox() {
+function FilterCheckbox({ onFilterClick }) {
   return (
     <section className="filterCheckbox">
       <form className="filterCheckbox__switcher">
@@ -8,6 +8,7 @@ function FilterCheckbox() {
           className="filterCheckbox__switcher-input"
           type="checkbox"
           id="filmSwither"
+          onClick={onFilterClick}
         />
         <label
           className="filterCheckbox__label filterCheckbox__label_active"

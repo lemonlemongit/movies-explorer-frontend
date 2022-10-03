@@ -17,6 +17,19 @@
   text-align: center;
 }
 
+.moviesCardList__list {
+  list-style-type: none;
+}
+.moviesCardList__search-error {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 12px;
+  color: #EE3465;
+  margin-top: 160px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .moviesCardList__more-button {
   width: 320px;
   height: 36px;

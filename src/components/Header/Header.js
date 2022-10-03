@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import logo from "../../images/header/logo.svg";
-import { NavLink, Link } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
+import HeaderMain from "../HeaderMain/HeaderMain";
 
-function Header({ loggedIn }) {
+function Header({ aloggedIn, isLoggedIn }) {
   const [navIsOpen, setPopupNavOpen] = useState(false);
 
   function openNav() {
@@ -13,69 +13,35 @@ function Header({ loggedIn }) {
     setPopupNavOpen(false);
   }
   return (
-    <header className={`header ${loggedIn ? "header_theme_dark" : ""}`}>
+    <header className="header">
       <div className="header__container">
         <a href="/">
           <img className="header__logo" src={logo} alt="Логотип сайта" />
         </a>
-        <nav className={`header__nav ${loggedIn ? "header__nav_visible" : ""}`}>
-          <ul className="header__nav-list">
-            <li className="header__list">
-              <NavLink
-                to="/movies"
-                activeClassName="header__list_active"
-                className="header__list-li"
-              >
-                Фильмы
-              </NavLink>
-            </li>
-            <li className="header__list">
-              <NavLink
-                to="/saved-movies"
-                activeClassName="header__list_active"
-                className="header__list-li"
-              >
-                Сохранённые фильмы{" "}
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="header__user">
-          <Link
-            to="/profile"
-            className={`header__user-account ${
-              loggedIn ? "header__user-account_visible" : ""
-            }`}
-          >
-            Аккаунт
-            <div className="header__user-account-icon">
-              <span className="header__user-icon"></span>
+
+        {!isLoggedIn && (
+          <div className="header__user header__user_type_main">
+            <div className="header__registration header__registration_type_vision">
+              <HeaderMain isLoggedIn={isLoggedIn} />
             </div>
-          </Link>
-        </div>
+          </div>
+        )}
+
+        {isLoggedIn && (
+          <div className="header__user header__user_type_vision">
+            <div className="header__registration header__registration_type_vision">
+              <HeaderMain isLoggedIn={isLoggedIn} />
+            </div>
+          </div>
+        )}
+
         <button
           type="button"
           className={`header__burger ${
-            loggedIn ? "header__burger_visible" : ""
+            aloggedIn ? "header__burger_visible" : ""
           }`}
           onClick={openNav}
         ></button>
-        <div
-          className={`header__sign-buttons ${
-            loggedIn ? "header__sign-buttons_inviseble" : ""
-          }`}
-        >
-          <Link to="/signup">
-            <button className="header__registration" type="button">
-              Регистрация
-            </button>
-          </Link>
-          <Link to="signin">
-            <button className="header__login" type="button">
-              Войти
-            </button>
-          </Link>
-        </div>
       </div>
       <Navigation navIsOpen={navIsOpen} closeNav={closeNav} />
     </header>

@@ -1,0 +1,138 @@
+.aboutMe {
+  background-color: #202020;
+  color: #ffffff;
+}
+
+.aboutMe__container {
+  max-width: 1280px;
+  padding: 100px 70px;
+}
+
+.aboutMe__title {
+  border-bottom: 1px solid #dadada;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  padding-bottom: 23px;
+  margin: 0;
+}
+
+.aboutMe__profile {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+}
+
+.aboutMe__avatar {
+  border-radius: 10px;
+  height: 327px;
+  width: 270px;
+}
+
+.aboutMe__profile-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.aboutMe__profile-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  mix-blend-mode: normal;
+  margin: 18px 0 0;
+}
+
+.aboutMe__my-decription {
+  margin: 26px 0 99px;
+  max-width: 600px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  mix-blend-mode: normal;
+}
+
+.aboutMe__my-github {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.aboutMe__my-github:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: ease 0.2s;
+}
+
+@media screen and (max-width: 1045px) {
+  .aboutMe__my-decription {
+    margin: 20px 49px 87px 0;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .aboutMe__container {
+    padding: 90px 50px;
+  }
+
+  .aboutMe__avatar {
+    border-radius: 10px;
+    height: 307px;
+    width: 255px;
+  }
+
+  .aboutMe__my-decription {
+    max-width: 600px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .aboutMe__profile-subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 0;
+  }
+
+  .aboutMe__profile-title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aboutMe__profile {
+    margin-top: 60px;
+    flex-direction: column-reverse;
+  }
+
+  .aboutMe__avatar {
+    height: 352px;
+    width: 292px;
+  }
+
+  .aboutMe__container {
+    padding: 60px 14px;
+  }
+
+  .aboutMe__my-decription {
+    margin-right: 0;
+  }
+
+  .aboutMe__profile-title {
+    margin-top: 40px;
+  }
+
+  .aboutMe__my-decription {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 40px;
+  }
+}

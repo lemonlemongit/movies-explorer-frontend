@@ -1,4 +1,4 @@
-﻿import { React, useState } from "react";
+import { React, useState } from "react";
 import logo from "../../images/header/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import { NavLink, Link, useLocation } from "react-router-dom";
@@ -21,7 +21,7 @@ function HeaderNoMain({ setFilterIsOn }) {
   }
 
   return (
-    <header className="header  header_theme_dark">
+    <header className="header header_theme_dark">
       <div className="header__container">
         <Link to="/">
           <img className="header__logo" src={logo} alt="Логотип сайта" />
@@ -33,7 +33,6 @@ function HeaderNoMain({ setFilterIsOn }) {
                 to="/movies"
                 activeClassName="header__list_active"
                 className="header__list-li"
-                onClick={pathname !== '/movies' ? setFalse: undefined}
               >
                 Фильмы
               </NavLink>

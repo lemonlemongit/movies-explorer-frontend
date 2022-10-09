@@ -17,6 +17,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { setSearchResult } from "../../helpers/setSearchResult";
 import { SearchResultContext } from "../../context/SearchResultContext";
 import { validateMovieToBookmarks } from "../../helpers/validateMovieToBookmarks";
+import { getSearchResult } from "../../helpers/getSearchResult";
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -26,6 +27,7 @@ function App() {
 
   const history = useHistory();
   const location = useLocation();
+  const pathname = location.pathname
 
   const [editIsSuccess, setEditIsSuccess] = React.useState(false);
   const [editIsFailed, setEditIsFailed] = React.useState(false);
@@ -39,16 +41,16 @@ function App() {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [filterMovies, setFilterMovies] = React.useState([]);
   const [isSavedMovies, setFilterSavedMovies] = React.useState([]);
-
-  const { arrayResult, isCheckboxOn } = useContext(SearchResultContext)
   
   const [filterIsOn, setFilterIsOn] = React.useState(false);
+  const [savedFilterOn, setSavedFilter] = React.useState(false)
  
   const [query, setQuery] = React.useState("");
 
-  const toggleFilter = () => {
+  const toggleFilter = () => {    
     const result = !filterIsOn
     setFilterIsOn(result)
+    if (pathname !== '/movies') return
     setSearchResult({arrayResult: filterMovies, isCheckboxOn: result, query})
   }
 
@@ -197,13 +199,6 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    if (loggedIn) {
-      getAllMoviesData();
-      getSavedMovies();
-    }
-  }, [loggedIn]);
-
   const isMovieAdded = (movie) =>
     savedMovies.some((item) => item.id === movie.id);
 
@@ -223,15 +218,29 @@ function App() {
     return [];
   };
 
-  const searchHandler = (searchQuery) => {
+  const searchHandler = (searchQuery, isOnFilter) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setQuery(searchQuery);
-      const filteredMovies = searchFilter(allMovies, searchQuery)
-      setFilterMovies(filteredMovies);
-      setSearchResult({arrayResult: filteredMovies, isCheckboxOn: filterIsOn, query: searchQuery})
-      setIsLoading(false);
-    }, 1000);
+
+    const delay = async (ms) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          setQuery(searchQuery);
+          const filteredMovies = searchFilter(allMovies, searchQuery)
+          setFilterMovies(filteredMovies);
+          resolve({filteredMovies})
+
+          setIsLoading(false);
+        }, ms);
+      })
+    }
+    
+    delay(1000).then(({ filteredMovies }) => {
+      if (pathname === '/movies') {
+        setSearchResult({arrayResult: filteredMovies, isCheckboxOn: isOnFilter ? isOnFilter: filterIsOn, query: searchQuery})
+      }
+    }).finally(() => {
+      setIsLoading(false)
+    })
   };
 
   const addToBookmarks = (movie) => {
@@ -272,9 +281,27 @@ function App() {
   }, [savedMovies]);
 
   useEffect(() => {
-    setFilterIsOn(isCheckboxOn)
-    setFilterMovies(arrayResult)
-  }, [])
+    if (loggedIn) {
+      getAllMoviesData();
+      getSavedMovies();
+    }
+  }, [loggedIn]);
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      const { arrayResult, isCheckboxOn, query: prevQuery } = getSearchResult()
+      setFilterIsOn(isCheckboxOn)
+      setQuery(query ? query: prevQuery)
+      setFilterMovies(arrayResult)
+
+      if (allMovies.length) {
+        const filteredMovies = searchFilter(allMovies, query ? query: prevQuery)
+        setFilterMovies(filteredMovies);
+        setSearchResult({arrayResult: filteredMovies, isCheckboxOn: isCheckboxOn, query: query ? query: prevQuery})
+      }
+    }
+    
+  }, [pathname, allMovies])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -299,6 +326,7 @@ function App() {
             filterIsOn={filterIsOn}
             setFilterIsOn={toggleFilter}
             setFilterNative={setFilterIsOn}
+            query={query}
             savedMovies={false}
             movies={filterMovies?.length ? filterMovies: []}
           />
@@ -311,9 +339,9 @@ function App() {
             component={SavedMovies}
             onBookmarkClick={bookmarkHandler}
             isMovieAdded={isMovieAdded}
-            filterIsOn={filterIsOn}
-            setFilterIsOn={toggleFilter}
-            setFilterNative={setFilterIsOn}
+            filterIsOn={savedFilterOn}
+            setFilterIsOn={setSavedFilter}
+            setFilterNative={setSavedFilter}
             savedMovies
             movies={savedMovies}
           />

@@ -15,7 +15,8 @@ function Movies({
   isMovieAdded,
   filterIsOn: isFilterOn,
   setFilterIsOn,
-  setFilterNative
+  setFilterNative,
+  query
 }) {
 
   const [counter, setCounter] = useState()
@@ -30,7 +31,7 @@ function Movies({
   return (
     <main>
       <HeaderNoMain setFilterIsOn={setFilterNative} />
-      <SearchForm onFilterClick={onFilterClick} onSearch={onSubmitSearch} isFilterOn={isFilterOn} />
+      <SearchForm onFilterClick={onFilterClick} onSearch={onSubmitSearch} isFilterOn={isFilterOn} query={query} />
       {isLoading && <Preloader />}
 
       {!isLoading && loadingError === "" && (

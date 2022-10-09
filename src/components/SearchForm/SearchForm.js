@@ -4,13 +4,12 @@ import { SearchResultContext } from "../../context/SearchResultContext";
 import useFormWithValidation from "../../validate/useFormWithValidation";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ onFilterClick, onSearch, isLoading, isFilterOn }) {
+function SearchForm({ onFilterClick, onSearch, isLoading, isFilterOn, query }) {
   const formWithValidation = useFormWithValidation();
   const { searchText } = formWithValidation.values;
   const { handleChange, resetForm } = formWithValidation;
   const [error, setError] = React.useState("");
   const { pathname } = useLocation()
-  const { query } = useContext(SearchResultContext)
 
   React.useEffect(() => {
     resetForm();
@@ -27,10 +26,10 @@ function SearchForm({ onFilterClick, onSearch, isLoading, isFilterOn }) {
   };
 
   useEffect(() => {
-    if (pathname === '/movies') {
+    if (pathname == '/movies') {
       formWithValidation.setValues({searchText: query})
     }
-  }, [])
+  }, [query])
 
   return (
     <section className="searchForm">

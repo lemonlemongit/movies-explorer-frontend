@@ -32,7 +32,6 @@ function MoviesCardList({
   };
 
   const renderExtraRow = () => {
-    console.log(movies.length,currentCount,extraRow)
     const count = Math.min(movies.length, currentCount + extraRow);
     const extraMovies = movies.slice(currentCount, count);
     setMoviesToRender([...moviesToRender, ...extraMovies]);

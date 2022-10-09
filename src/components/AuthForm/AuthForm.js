@@ -26,7 +26,7 @@ function AuthForm({
             required
             minLength="2"
             maxLength="30"
-            pattern="^[a-zA-Z- ]+$"
+            pattern="^[A-Za-zА-яё -]+$"
             name="name"
             type="text"
             onChange={handleChange}
@@ -45,6 +45,7 @@ function AuthForm({
         type="email"
         required
         name="email"
+        pattern="^[^ ]+@[^ ]+\.[a-z]{2,3}$"
         onChange={handleChange}
         value={values.email || ""}
       ></input>

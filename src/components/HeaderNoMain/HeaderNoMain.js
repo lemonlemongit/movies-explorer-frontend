@@ -1,10 +1,11 @@
-import { React, useState } from "react";
+﻿import { React, useState } from "react";
 import logo from "../../images/header/logo.svg";
 import Navigation from "../Navigation/Navigation";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
-function HeaderNoMain() {
+function HeaderNoMain({ setFilterIsOn }) {
   const [navIsOpen, setPopupNavOpen] = useState(false);
+  const { pathname } = useLocation()
 
   function openNav() {
     setPopupNavOpen(true);
@@ -12,8 +13,15 @@ function HeaderNoMain() {
   function closeNav() {
     setPopupNavOpen(false);
   }
+
+  const setFalse = () => {
+    if (setFilterIsOn) {
+      setFilterIsOn(false)
+    }
+  }
+
   return (
-    <header className="header header_theme_dark">
+    <header className="header  header_theme_dark">
       <div className="header__container">
         <Link to="/">
           <img className="header__logo" src={logo} alt="Логотип сайта" />
@@ -25,6 +33,7 @@ function HeaderNoMain() {
                 to="/movies"
                 activeClassName="header__list_active"
                 className="header__list-li"
+                onClick={pathname !== '/movies' ? setFalse: undefined}
               >
                 Фильмы
               </NavLink>
@@ -34,6 +43,7 @@ function HeaderNoMain() {
                 to="/saved-movies"
                 activeClassName="header__list_active"
                 className="header__list-li"
+                onClick={pathname !== '/saved-movies' ? setFalse: undefined}
               >
                 Сохранённые фильмы
               </NavLink>

@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
+﻿/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -14,6 +14,9 @@ import { CurrentUserContext } from "../../context/CurrentUserContext";
 import mainApi from "../../utils/MainApi";
 import { getMovies } from "../../utils/MoviesApi";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { setSearchResult } from "../../helpers/setSearchResult";
+import { SearchResultContext } from "../../context/SearchResultContext";
+import { validateMovieToBookmarks } from "../../helpers/validateMovieToBookmarks";
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -36,8 +39,18 @@ function App() {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [filterMovies, setFilterMovies] = React.useState([]);
   const [isSavedMovies, setFilterSavedMovies] = React.useState([]);
+
+  const { arrayResult, isCheckboxOn } = useContext(SearchResultContext)
+  
+  const [filterIsOn, setFilterIsOn] = React.useState(false);
  
   const [query, setQuery] = React.useState("");
+
+  const toggleFilter = () => {
+    const result = !filterIsOn
+    setFilterIsOn(result)
+    setSearchResult({arrayResult: filterMovies, isCheckboxOn: result, query})
+  }
 
 
   const getCurrentUser = () => {
@@ -118,6 +131,7 @@ function App() {
     setAllMovies([]);
     setSavedMovies([]);
     setFilterMovies([]);
+    setSearchResult({arrayResult: [], isCheckboxOn: false, query: ""});
     setFilterSavedMovies([]);
 
     history.push("/");
@@ -184,22 +198,6 @@ function App() {
   };
 
   useEffect(() => {
-    const allMoviesArr = JSON.parse(localStorage.getItem("allMovies"));
-    if (allMoviesArr) {
-      setAllMovies(allMoviesArr);
-    } else {
-      getAllMoviesData();
-    }
-
-    const saved = JSON.parse(localStorage.getItem("savedMovies"));
-    if (saved) {
-      setSavedMovies(saved);
-    } else {
-      getSavedMovies();
-    }
-  }, []);
-
-  useEffect(() => {
     if (loggedIn) {
       getAllMoviesData();
       getSavedMovies();
@@ -229,14 +227,17 @@ function App() {
     setIsLoading(true);
     setTimeout(() => {
       setQuery(searchQuery);
-      setFilterMovies(searchFilter(allMovies, searchQuery));
+      const filteredMovies = searchFilter(allMovies, searchQuery)
+      setFilterMovies(filteredMovies);
+      setSearchResult({arrayResult: filteredMovies, isCheckboxOn: filterIsOn, query: searchQuery})
       setIsLoading(false);
     }, 1000);
   };
 
   const addToBookmarks = (movie) => {
+    const validatedMovie = validateMovieToBookmarks(movie)
     mainApi
-      .addBookmark(movie)
+      .addBookmark(validatedMovie)
       .then((res) => {
         setSavedMovies([...savedMovies, { ...res, id: res.movieId }]);
       })
@@ -270,6 +271,11 @@ function App() {
     localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
   }, [savedMovies]);
 
+  useEffect(() => {
+    setFilterIsOn(isCheckboxOn)
+    setFilterMovies(arrayResult)
+  }, [])
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -290,8 +296,11 @@ function App() {
             onSubmitSearch={searchHandler}
             onBookmarkClick={bookmarkHandler}
             isMovieAdded={isMovieAdded}
+            filterIsOn={filterIsOn}
+            setFilterIsOn={toggleFilter}
+            setFilterNative={setFilterIsOn}
             savedMovies={false}
-            movies={filterMovies}
+            movies={filterMovies?.length ? filterMovies: []}
           />
           <ProtectedRoute
             exact
@@ -302,6 +311,9 @@ function App() {
             component={SavedMovies}
             onBookmarkClick={bookmarkHandler}
             isMovieAdded={isMovieAdded}
+            filterIsOn={filterIsOn}
+            setFilterIsOn={toggleFilter}
+            setFilterNative={setFilterIsOn}
             savedMovies
             movies={savedMovies}
           />

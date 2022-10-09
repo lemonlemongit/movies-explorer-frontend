@@ -53,11 +53,11 @@
   left: 6px;
 }
 
-.filterCheckbox__switcher-input:checked+.filterCheckbox__label::before {
+.filterCheckbox__switcher-input.checked+.filterCheckbox__label::before {
   background-color: #3DDC84;
 }
 
-.filterCheckbox__switcher-input:checked+.filterCheckbox__label::after {
+.filterCheckbox__switcher-input.checked+.filterCheckbox__label::after {
   background-color: #FFFFFF;
   left: 22px;
   width: 8px;

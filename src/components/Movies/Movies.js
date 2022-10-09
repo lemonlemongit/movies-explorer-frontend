@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
@@ -13,27 +13,34 @@ function Movies({
   loadingError,
   onBookmarkClick,
   isMovieAdded,
+  filterIsOn: isFilterOn,
+  setFilterIsOn,
+  setFilterNative
 }) {
-  const [filterIsOn, setFilterIsOn] = React.useState(false);
+
+  const [counter, setCounter] = useState()
 
   const filterShortFilm = (moviesToFilter) =>
     moviesToFilter.filter((item) => item.duration < 40);
 
   const onFilterClick = () => {
-    setFilterIsOn(!filterIsOn);
+    setFilterIsOn();
   };
+  
   return (
     <main>
-      <HeaderNoMain />
-      <SearchForm onFilterClick={onFilterClick} onSearch={onSubmitSearch} />
+      <HeaderNoMain setFilterIsOn={setFilterNative} />
+      <SearchForm onFilterClick={onFilterClick} onSearch={onSubmitSearch} isFilterOn={isFilterOn} />
       {isLoading && <Preloader />}
 
       {!isLoading && loadingError === "" && (
         <MoviesCardList
           savedMovies={savedMovies}
-          movies={filterIsOn ? filterShortFilm(movies) : movies}
+          movies={isFilterOn ? filterShortFilm(movies) : movies}
           onBookmarkClick={onBookmarkClick}
           isMovieAdded={isMovieAdded}
+          counter={counter}
+          setCounter={setCounter}
         />
       )}
       {!isLoading && loadingError !== "" && (

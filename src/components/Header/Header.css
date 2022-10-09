@@ -23,6 +23,9 @@ a {
   justify-content: space-between;
 }
 
+.header_blue {
+background-color: #3DDC84;
+}
 .header__logo {
   max-height: 38px;
   max-width: 38px;

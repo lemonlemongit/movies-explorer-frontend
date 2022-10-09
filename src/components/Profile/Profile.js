@@ -38,7 +38,7 @@ function Profile({
               name="name"
               type="text"
               minLength="4"
-              pattern="^[a-zA-Z- ]+$"
+              pattern="^[A-Za-zА-яё -]+$"
               placeholder="Имя"
               value={values.name || ""}
               onChange={handleChange}
@@ -55,6 +55,7 @@ function Profile({
               name="email"
               type="email"
               placeholder="pochta@yandex.ru"
+              pattern="^[^ ]+@[^ ]+\.[a-z]{2,3}$"
               value={values.email || ""}
               onChange={handleChange}
               autoComplete="off"

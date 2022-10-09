@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import HeaderNoMain from "../HeaderNoMain/HeaderNoMain";
 
 function HeaderMain({ isLoggedIn }) {
   return (
@@ -16,7 +17,10 @@ function HeaderMain({ isLoggedIn }) {
           </Link>
 
           <Link to="signin">
-            <button className="header__login header__login_type_vision" type="button">
+            <button
+              className="header__login header__login_type_vision"
+              type="button"
+            >
               Войти
             </button>
           </Link>
@@ -25,18 +29,10 @@ function HeaderMain({ isLoggedIn }) {
 
       {isLoggedIn && (
         <>
-          <Link
-          to="/profile"
-          className={"header__user-account header__user-account_visible"}
-        >
-          Аккаунт
-          <div className="header__user-account-icon">
-            <span className="header__user-icon"></span>
-          </div>
-        </Link>
+          <HeaderNoMain isLoggedIn={isLoggedIn} />
         </>
       )}
-  </>
+    </>
   );
 }
 

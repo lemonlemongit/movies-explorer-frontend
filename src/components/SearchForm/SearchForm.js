@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { SearchResultContext } from "../../context/SearchResultContext";
 import useFormWithValidation from "../../validate/useFormWithValidation";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ onFilterClick, onSearch, isLoading }) {
+function SearchForm({ onFilterClick, onSearch, isLoading, isFilterOn }) {
   const formWithValidation = useFormWithValidation();
   const { searchText } = formWithValidation.values;
   const { handleChange, resetForm } = formWithValidation;
   const [error, setError] = React.useState("");
+  const { pathname } = useLocation()
+  const { query } = useContext(SearchResultContext)
 
   React.useEffect(() => {
     resetForm();
@@ -19,9 +23,14 @@ function SearchForm({ onFilterClick, onSearch, isLoading }) {
     } else {
       onSearch(searchText);
       setError("");
-      resetForm();
     }
   };
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      formWithValidation.setValues({searchText: query})
+    }
+  }, [])
 
   return (
     <section className="searchForm">
@@ -40,7 +49,7 @@ function SearchForm({ onFilterClick, onSearch, isLoading }) {
         {error && <span className="searchForm__span-error">{error}</span>}
         <button className="searchForm__button" type="submit"></button>
       </form>
-      <FilterCheckbox onFilterClick={onFilterClick} />
+      <FilterCheckbox onFilterClick={onFilterClick} checked={isFilterOn} />
     </section>
   );
 }

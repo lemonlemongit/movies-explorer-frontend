@@ -4,12 +4,16 @@ import "./index.css";
 import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { SearchResultContext } from "./context/SearchResultContext";
+import { getSearchResult } from './helpers/getSearchResult'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <SearchResultContext.Provider value={getSearchResult()}>
+        <App />
+      </SearchResultContext.Provider>
     </React.StrictMode>
   </BrowserRouter>
 );

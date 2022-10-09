@@ -1,17 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import LoadMoreBtn from "../Buttons/LoadMoreBtn/LoadMoreBtn";
+import { SearchResultContext } from "../../context/SearchResultContext";
 
 function MoviesCardList({
   savedMovies,
   movies,
   onBookmarkClick,
   isMovieAdded,
+  counter,
+  setCounter
 }) {
   const [currentCount, setCurrentCount] = useState(0);
   const [extraRow, setExtraRow] = useState(3);
   const [moviesToRender, setMoviesToRender] = useState([]);
+  const { arrayResult, isCheckboxOn } = useContext(SearchResultContext) 
 
   const getCount = (windowSize) => {
     if (windowSize >= 1080) {
@@ -27,6 +32,7 @@ function MoviesCardList({
   };
 
   const renderExtraRow = () => {
+    console.log(movies.length,currentCount,extraRow)
     const count = Math.min(movies.length, currentCount + extraRow);
     const extraMovies = movies.slice(currentCount, count);
     setMoviesToRender([...moviesToRender, ...extraMovies]);
@@ -35,7 +41,7 @@ function MoviesCardList({
 
   const resizeHandler = () => {
     const windowSize = window.innerWidth;
-    setExtraRow(getCount(windowSize));
+    setExtraRow(getCount(windowSize).extra);
   };
 
   useEffect(() => {
@@ -47,12 +53,15 @@ function MoviesCardList({
   }, [resizeHandler]);
 
   useEffect(() => {
-    const windowSize = window.innerWidth;
-    setExtraRow(getCount(windowSize).extra);
-    const count = Math.min(movies.length, getCount(windowSize).first);
-    setMoviesToRender(movies.slice(0, count));
-    setCurrentCount(count);
+    if (movies) {
+      const windowSize = window.innerWidth;
+      setExtraRow(getCount(windowSize).extra);
+      const count = Math.min(movies.length, getCount(windowSize).first);
+      setMoviesToRender(movies.slice(0, count));
+      setCurrentCount(count);
+    }
   }, [movies]);
+
 
   const renderMore = () => renderExtraRow();
 
@@ -71,7 +80,7 @@ function MoviesCardList({
         ))}
       </div>
       <div className="moviesCardList__more">
-        {currentCount < movies.length && <LoadMoreBtn onClick={renderMore} />}
+        {movies && currentCount < movies.length && <LoadMoreBtn onClick={renderMore} />}
       </div>
     </section>
   );

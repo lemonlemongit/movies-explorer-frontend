@@ -19,6 +19,6 @@ ________________________________
 
 _______________________________
 
-Ссылка на ветку level-3 :
+Ссылка на ветку level-3:
 
 https://github.com/lemonlemongit/movies-explorer-frontend/pull/2

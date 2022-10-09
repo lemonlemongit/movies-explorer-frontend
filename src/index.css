@@ -1,0 +1,37 @@
+/*normalize*/
+@import url('vendor/normalize.css');
+/*root и page*/
+@import url('./blocks/root.css');
+@import url('./blocks/page.css');
+/*header*/
+@import url('./components/Header/Header.css');
+/*promo*/
+@import url('./components/Promo/Promo.css');
+/*aboutProject*/
+@import url('./components/AboutProject/AboutProject.css');
+/*techs*/
+@import url('./components/Techs/Techs.css');
+/*aboutMe*/
+@import url('./components/AboutMe/AboutMe.css');
+/*portfolio*/
+@import url('./components/Portfolio/Portfolio.css');
+/*footer*/
+@import url('./components/Footer/Footer.css');
+/*searchForm*/
+@import url('./components/SearchForm/SearchForm.css');
+/*filterCheckbox*/
+@import url('./components/FilterCheckbox/FilterCheckbox.css');
+/*moviesCard*/
+@import url('./components/MoviesCard/MoviesCard.css');
+/*moviesCardList*/
+@import url('./components/MoviesCardList/MoviesCardList.css');
+/*register*/
+@import url('./components/Register/Register.css');
+/*login*/
+@import url('./components/Login/Login.css');
+/*norFound*/
+@import url('./components/NotFound/NotFound.css');
+/*profile*/
+@import url('./components/Profile/Profile.css');
+/*navigation*/
+@import url('./components/Navigation/Navigation.css');

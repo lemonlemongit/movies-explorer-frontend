@@ -1,0 +1,129 @@
+.techs {
+  background-color: #272727;
+  color: #FFFFFF;
+}
+
+.techs__container {
+  max-width: 1280px;
+  padding: 100px 70px 100px;
+}
+
+.techs__title {
+  border-bottom: 1px solid #DADADA;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  padding-bottom: 23px;
+  margin: 0;
+}
+
+.techs__lists {
+  display: grid;
+  grid-template-columns: repeat(7, 90px);
+  grid-gap: 10px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.techs__list {
+  list-style: none;
+  background: #303030;
+  border-radius: 10px;
+  text-align: center;
+  padding: 21px 0;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.techs__technology {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.techs__technology-title {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 90px 0 26px 0;
+}
+
+.techs__technology-subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  max-width: 460px;
+  margin: 0 auto 100px;
+}
+
+@media screen and (max-width:890px) {
+  .techs__container {
+    padding: 90px 50px;
+  }
+
+  .techs__lists {
+    grid-template-columns: repeat(7, 84px);
+  }
+
+  .techs__technology-subtitle {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .techs__lists {
+    grid-template-columns: repeat(4, 84px);
+  }
+
+  .techs__technology-title {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 80px 0 22px 0;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .techs__container {
+    padding: 70px 18px;
+  }
+}
+
+@media screen and (max-width:490px) {
+  .techs__lists {
+    grid-template-columns: repeat(3, 84px);
+  }
+
+  .techs {
+    background-color: #202020;
+  }
+
+  .techs__title {
+    border-bottom: 1px solid #000000;
+  }
+
+  .techs__technology-title {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 60px 0 24px 0;
+  }
+}
+
+@media screen and (max-width:390px) {
+  .techs__lists {
+    grid-template-columns: repeat(2, 84px);
+  }
+
+  .techs__technology-subtitle {
+    font-size: 11px;
+    line-height: 16px;
+
+  }
+}

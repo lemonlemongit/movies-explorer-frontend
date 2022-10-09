@@ -1,0 +1,78 @@
+.moviesCard__container {
+  max-width: 364px;
+  max-height: 271px;
+  background: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.moviesCard__picture {
+  width: 364px;
+  height: 203px;
+}
+
+.moviesCard__preview-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.moviesCard__film-title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin: 14px 0 9px 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 100px;
+  max-width: 210px;
+}
+
+.moviesCard__duration {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #8B8B8B;
+  margin: 0 0 9px 14px;
+}
+
+.moviesCard__flag {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #313131;
+  margin: 19px 14px;
+  border: 0;
+  padding: 0;
+}
+
+.moviesCard__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.moviesCard__flag:hover,
+.moviesCard__picture:hover,
+.moviesCard__flag_type_saved:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: ease 0.2s
+}
+
+.moviesCard__flag_type_saved {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3DDC84;
+  margin: 19px 14px;
+  border: 0;
+  padding: 0;
+}
+
+.moviesCard__flag-img {
+  padding-top: 4px;
+  margin: 0 auto;
+}

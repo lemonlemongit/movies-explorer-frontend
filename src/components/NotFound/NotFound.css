@@ -1,0 +1,58 @@
+.notFound__container {
+  background-color: #202020;
+  color: white;
+  text-align: center;
+  padding-top: 246px;
+}
+
+.notFound__title {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+}
+
+.notFound__subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 5px 0 0;
+  margin-bottom: 184px;
+}
+
+.notFound__link {
+  color: #4285F4;
+  text-decoration: none;
+  list-style: none;
+}
+
+.notFound__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: ease 0.2s
+}
+
+@media screen and (max-width:768px) {
+  .notFound__container {
+    padding-top: 408px;
+  }
+}
+
+@media screen and (max-width:460px) {
+  .notFound__title {
+    font-size: 80px;
+    line-height: 97px;
+  }
+
+  .notFound__subtitle {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 10px 0 0;
+    margin-bottom: 284px;
+  }
+
+  .notFound__container {
+    padding-top: 329px;
+  }
+}
